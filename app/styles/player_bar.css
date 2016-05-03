@@ -87,13 +87,13 @@
   top: 0.5rem;
 }
 
-seek-control .total-time {
+.seek-control .total-time {
   position: absolute;
   right: 0;
   top: 0.5rem;
 }
 
-seek-bar {
+.seek-bar {
   height: 0.25rem;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
