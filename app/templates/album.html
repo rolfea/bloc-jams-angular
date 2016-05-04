@@ -1,5 +1,5 @@
 <main class="album-view container narrow">
-  <section class="clearfix" ng-repeat="albumList in album.albumData">    
+  <section class="clearfix" ng-repeat="albumList in album.albumData">  
     <div class="column half">
       <img src="{{albumList.albumArtUrl}}" class="album-cover-art">
     </div>
@@ -9,17 +9,17 @@
       <h5 class="album-view-release-info">{{albumList.label + " " + albumList.year}}</h5>
     </div>
   </section>
-  <section ng-repeat="songData in album.albumData.songs">
-    <pre>{{songData|json}}</pre>
-    <table class="album-view-song-list">    
-      <tr class="album-view-song-item" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
+  <section ng-repeat="albumList in album.albumData">
+    <pre>{{albumList.songs|json}}</pre>
+    <table class="album-view-song-list">      
+      <tr class="album-view-song-item" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">        
         <td class="song-item-number">
           <span ng-show="!playing && !hovered">{{$index + 1}}</span>
           <a class="album-song-button" ng-show="!playing && hovered"><span class="ion-play"></span></a>
           <a class="album-song-button" ng-show="playing"><span class="ion-pause"></span></a>
         </td>
-        <td class="song-item-title">{{songData.title}}</td>
-        <td class="song-item-duration">{{songData.duration}}</td>
+        <td class="song-item-title">{{albumList.songs.title}}</td>
+        <td class="song-item-duration">{{albumList.songs.duration}}</td>
       </tr>
     </table>
   </section>
