@@ -1,16 +1,17 @@
 <main class="album-view container narrow">
-  <section class="clearfix" ng-repeat="albumList in album.albumData">  
-    <div class="column half">
-      <img src="{{albumList.albumArtUrl}}" class="album-cover-art">
+  <section class="clearfix" >  
+    <div class="column half">      
+      <img src="{{album.albumData.albumArtUrl}}" class="album-cover-art">
     </div>
     <div class="album-view-details column half">
-      <h2 class="album-view-title">{{albumList.title}}</h2>
-      <h3 class="album-view-artist">{{albumList.artist}}</h3>
-      <h5 class="album-view-release-info">{{albumList.label + " " + albumList.year}}</h5>
+<!--      no repeat here fix this-->
+      <h2 class="album-view-title">{{album.albumData.title}}</h2> 
+      <h3 class="album-view-artist">{{album.albumData.artist}}</h3>
+      <h5 class="album-view-release-info">{{album.albumData.label + " " + album.albumData.year}}</h5>
     </div>
   </section>
-  <section ng-repeat="albumList in album.albumData">
-    <pre>{{albumList.songs|json}}</pre>
+  <section ng-repeat="song in album.albumData.songs">
+<!--    <pre>{{song|json}}</pre>-->
     <table class="album-view-song-list">      
       <tr class="album-view-song-item" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">        
         <td class="song-item-number">
@@ -18,8 +19,8 @@
           <a class="album-song-button" ng-show="!playing && hovered"><span class="ion-play"></span></a>
           <a class="album-song-button" ng-show="playing"><span class="ion-pause"></span></a>
         </td>
-        <td class="song-item-title">{{albumList.songs.title}}</td>
-        <td class="song-item-duration">{{albumList.songs.duration}}</td>
+        <td class="song-item-title">{{song.title}}</td>
+        <td class="song-item-duration">{{song.duration}}</td>
       </tr>
     </table>
   </section>
