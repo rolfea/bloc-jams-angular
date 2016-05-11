@@ -108,6 +108,25 @@
       }
     };
 
+    /**
+    * @function SongPlayer.next
+    * @desc sets the currentSongIndex to SongPlayer.currentSong, then increases it by 1
+    * @param {Object} song
+    */
+    SongPlayer.next = function() {
+      var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+      currentSongIndex++;
+
+      if (currentSongIndex >= currentAlbum.songs.length) {
+        currentBuzzObject.stop();
+        SongPlayer.currentSong.playing = null;
+      } else {
+        var song = currentAlbum.songs[currentSongIndex];
+        setSong(song);
+        playSong(song);
+      }
+    };
+
     return SongPlayer;
   }
 
